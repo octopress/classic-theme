@@ -1,0 +1,16 @@
+{% assign linkpost = post.external-url || false %}
+
+{% assign title_url = (linkpost ? linkpost : post.url) %}
+{% capture title_url %}{{ title_url | prepend_url: site.url }}{% endcapture %}
+
+{% include theme/vars/title_marker_feed.html %}
+{% include theme/vars/title_marker_position.html %}
+{% include theme/vars/title.html %}
+
+{% capture post_content %}{{ post.content | expand_urls: site.url }}{% endcapture %}
+{% if site.excerpt.feed %}
+  {% capture post_content %}{{ post_content | excerpt }}<p><a rel="bookmark" href="{{ site.url }}{{ post.url }}">{{ site.excerpt.link }}</a></p>{% endcapture %}
+{% else %}
+  {% capture post_content if linkpost and site.permalink_label.feed %}{{ post_content }}<p><a rel="bookmark" href="{{ site.url }}{{ post.url }}">{{ site.permalink_label.feed }}</a></p>{% endcapture %}
+{% endif %}
+

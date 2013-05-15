@@ -1,0 +1,8 @@
+{% if linkpost %}
+  {% assign marker = site.title_marker.linkpost.marker || false %}
+  {% assign marker_pos = site.title_marker.linkpost.position %}
+{% else %}
+  {% assign marker = site.title_marker.post.marker || false %}
+  {% assign marker_pos = site.title_marker.post.position %}
+{% endif %}
+

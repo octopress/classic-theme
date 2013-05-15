@@ -1,0 +1,7 @@
+{% capture root_url %}{{ site.root | strip_slash }}{% endcapture %}
+
+{% assign sidebar = page.sidebar || site.sidebar || '' %}
+
+{% assign body_class = page.class || '' %}
+{% capture body_class if sidebar == false %}{{ body_class }} no-sidebar{% endcapture %}
+{% capture body_class if sidebar == 'collapse' %}{{ body_class }} collapse-sidebar sidebar-footer{% endcapture %}

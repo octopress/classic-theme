@@ -1,0 +1,6 @@
+<div class="posts-index">
+  {% for post in paginator.posts %}
+    {% include theme/index-post.html %}
+  {% endfor %}
+  {% include theme/navigation/pagination.html %}
+</div>

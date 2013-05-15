@@ -1,0 +1,4 @@
+{% assign author = post.author || page.author || site.author || false %}
+{% if author %}{% capture author %}<span class="byline author vcard">Posted by <span class="fn">{{ author }}</span></span>{% endcapture %}{% endif %}
+{% capture author %}{% return author || '' %}{% endcapture %}
+

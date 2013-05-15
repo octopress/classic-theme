@@ -1,0 +1,7 @@
+{% assign date = post.date || page.date || nil %}
+
+{% capture date if date %}<time class='date-published' datetime="{{ date | datetime | date_to_xmlschema }}" pubdate{% if updated %} data-updated="true"{% endif %}>{{ date | format_date, site.date_format }}</time>{% endcapture %}
+
+{% assign updated = post.updated || page.updated || nil %}
+{% capture updated if updated %}<time class='date-updated' datetime="{{ updated | datetime | date_to_xmlschema }}">Last updated {{ updated | format_date, site.date_format }}</time>{% endcapture %}
+

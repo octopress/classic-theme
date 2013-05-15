@@ -1,0 +1,5 @@
+{% if marker %}
+{% capture marker_before if marker_pos == 'before' %}<span class='post-marker'>{{ marker }}</span> {% endcapture %}
+{% capture marker_after if marker_pos == 'after' %} <span class='post-marker'>{{ marker }}</span>{% endcapture %}
+{% endif %}
+

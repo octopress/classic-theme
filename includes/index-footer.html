@@ -1,0 +1,6 @@
+<footer>
+  {% include comments/link.html if site.comments and post.comments %}
+  {% unless excerpted == 'false' %}
+    <p><a rel="full-article" href="{{ permalink }}">{{ site.excerpt.link }}</a></p>
+  {% endunless %}
+</footer>

@@ -1,0 +1,8 @@
+{% assign categories = post.categories || page.categories || '' %}
+{% capture has_cats if categories != '' %}{{ categories | category_links | size }}{% endcapture %}
+{% if has_cats == '0' %}
+  {% assign categories = ''%}
+{% elsif has_cats? %}
+  {% capture categories unless has_cats == '0' %}<span class="categories">{{ categories | category_links }}</span>{% endcapture %}
+{% endif %}
+

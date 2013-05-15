@@ -1,0 +1,8 @@
+{% include theme/vars/feed.html %}
+
+<title type="html">{{ title_text | cdata_escape }}</title>
+<link href="{{ title_url }}"/>
+<updated>{{ post.date | date_to_xmlschema }}</updated>
+<id>{{ site.url }}{{ post.id }}</id>
+{% for category in post.categories %}<category term="{{ category }}" />{% endfor %}
+<content type="html">{{ post_content | cdata_escape }}</content>

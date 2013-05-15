@@ -1,0 +1,5 @@
+---
+layout: nil
+---
+
+{% include custom/layouts/feed.xml || theme/layouts/feed.xml %}

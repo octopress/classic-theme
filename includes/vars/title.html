@@ -1,0 +1,8 @@
+{% assign title_text = post.title || page.title %}
+{% assign titlecase = post.titlecase || page.titlecase || site.titlecase || true %}
+{% if titlecase %}{% capture title_text %}{{ title_text | titlecase }}{% endcapture %}{% endif %}
+
+{% assign title_url = post.external-url || page.external-url || post.url || page.url %}
+
+{% capture title %}{% return marker_before || '' %}{% if post or linkpost %}<a href="{{ title_url }}">{% endif %}{{ title_text }}{% if post or linkpost %}</a>{% endif %}{% return marker_after || '' %}{% endcapture %}
+

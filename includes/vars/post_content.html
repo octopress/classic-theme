@@ -1,0 +1,5 @@
+{% assign post_content = post.content || nil %}
+{% unless post_content %}
+  {% capture excerpted %}{{ post_content | has_excerpt }}{% endcapture %}
+  {% if excerpted != 'false' %}{% capture post_content %}{{ post_content | excerpt }}{% endcapture %}{% endif %}
+{% endunless %}

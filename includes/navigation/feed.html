@@ -1,0 +1,6 @@
+<ul class="subscription" data-subscription="rss{% if site.subscribe_email %} email{% endif %}">
+  <li><a href="{{ site.feed.url }}" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  {% if site.feed.email_url %}
+    <li><a href="{{ site.feed.email_url }}" rel="subscribe-email" title="subscribe via email">Email</a></li>
+  {% endif %}
+</ul>

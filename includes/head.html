@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+  <meta name="author" content="{{ site.author }}">
+  <!--remove-->
+  {% if site.googleplus_user %}<link href="https://plus.google.com/{{ site.googleplus_user }}" rel="author">{% endif %}
+  <meta name="Generator" content="Jekyll & Octopress (http://octopress.org)">
+
+  {% assign description = page.description || site.description || nil %}
+  {% if description %}<meta name="description" content="{{ description }}">{% endif %}
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% assign page_url = page.url %}
+  {% capture page_url unless site.permalink contains '.html' %}
+    {% return '/' if page.url contains site.category_dir %}
+    {{ page.url | remove:'index.html' }}
+  {% endcapture %}
+
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link href="{{ root_url }}/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="{{ site.subscribe_rss }}" rel="alternate" title="{{site.title}}" type="application/atom+xml">
+  <script src="{{ root_url }}{% javascript_assets_tag %}"></script>
+  {% capture favicon unless favicon %}{{ root_url }}/octopress-favicon.png{% endcapture %}
+  <link href="{{favicon}}" rel="icon">
+</head>

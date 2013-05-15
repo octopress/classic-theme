@@ -1,0 +1,19 @@
+{% include theme/vars/post.html %}
+
+<div>
+<article class="{% if linkpost %}link-post{% endif %}" role="article">
+  {% if page.title %}
+    <header class="entry-header">
+      <h1 class="entry-title">{{ title }}</h1>
+      {% if page.date %}<p class="meta">{{ date }}{% if page.is_post %} &bull; {{ permalink }}{% endif %}</p>{% endif %}
+    </header>
+  {% endif %}
+  <div class="entry-content">{{ content }}</div>
+  {% if page.is_post %}
+    <footer>
+      <p class="meta">{{ author }} {% return updated || date %} {{ categories }}</p>
+      {% include theme/navigation/posts.html if page.previous.url or page.next.url %}
+    </footer>
+  {% endif %}
+</article>
+</div>

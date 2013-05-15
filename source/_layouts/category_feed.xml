@@ -1,0 +1,4 @@
+---
+layout: nil
+---
+{% include custom/layouts/category-feed.xml || theme/layouts/category-feed.xml %}

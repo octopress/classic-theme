@@ -1,0 +1,9 @@
+{% include theme/vars/post.html %}
+<article class="{% if linkpost %}link-post{% endif %}" role="article">
+  <header class="entry-header">
+    <h1 class="entry-title">{{ title }}</h1>
+    <p class="meta">{{ date }} &bull; {{ permalink }}</p>
+  </header>
+  <div class="entry-content">{{ post_content }}</div>
+  {% include theme/index-footer.html %}
+</article>

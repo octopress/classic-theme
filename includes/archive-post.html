@@ -1,0 +1,12 @@
+{% include theme/vars/post.html %}
+<article {% if linkpost %}class='link-post'{% endif %}>
+  <h1 class='entry-title'>{{ title }}</h1>
+  <time datetime="{{ post.date | datetime | date_to_xmlschema }}" pubdate>{{ post.date | date: "<span class='month'>%b</span> <span class='day'>%d</span> <span class='year'>%Y</span>"}}</time>
+  <footer>
+    {% if linkpost %}{{ permalink }}{% endif %}
+    {% if categories != '' %}
+      {% if linkpost %} &bull; {% endif %}
+      <span class="categories">posted in {{ categories }}</span>
+    {% endif %}
+  </footer>
+</article>
