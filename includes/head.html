@@ -27,7 +27,7 @@
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
   <link href="{{ root_url }}/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="{{ site.subscribe_rss }}" rel="alternate" title="{{site.title}}" type="application/atom+xml">
-  <script src="{{ root_url }}{% javascript_assets_tag %}"></script>
+  <script src="{{ root_url }}{% js-assets %}"></script>
   {% capture favicon unless favicon %}{{ root_url }}/octopress-favicon.png{% endcapture %}
   <link href="{{favicon}}" rel="icon">
 </head>
