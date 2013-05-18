@@ -1,5 +1,14 @@
 {% capture root_url %}{{ site.root | strip_slash }}{% endcapture %}
 
+{% assign description = page.description || site.description || nil %}
+{% assign page_url = page.url %}
+{% capture page_url unless site.permalink contains '.html' %}
+  {% return '/' if page.url contains site.category_dir %}
+  {{ page.url | remove:'index.html' }}
+{% endcapture %}
+
+{% capture favicon unless favicon %}{{ root_url }}/octopress-favicon.png{% endcapture %}
+
 {% assign sidebar = page.sidebar || site.sidebar || '' %}
 
 {% assign body_class = page.class || '' %}
