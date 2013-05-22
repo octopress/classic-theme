@@ -10,9 +10,6 @@ theme:
   # path to theme javascripts directory
   javascripts_dir: javascripts
 
-require_js:
-  lib: ['lib/jquery-1.9.1.js', 'lib/jquery.cookie.js', 'lib/**/*']
-
 
 simple_search: http://google.com/search
 favicon: /octopress-favicon.png
