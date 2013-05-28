@@ -5,11 +5,7 @@
 
 theme:
   name: classic
-  # path to theme stylesheets directory
-  stylesheets_dir: stylesheets
-  # path to theme javascripts directory
-  javascripts_dir: javascripts
-
+  version: 3.0
 
 simple_search: http://google.com/search
 favicon: /octopress-favicon.png

@@ -39,25 +39,6 @@ var octopress = (function(){
       if (sections.length >= 3){ $('aside.sidebar').addClass('thirds'); }
     }
 
-    , testFeature: function (features) {
-      getTestClasses = function (tests) {
-        classes = '';
-        if (typeof(tests.join) == 'function') {
-          for (var i=0; i < features.length; i++)
-            classes += getClass(features[i]) + ' ';
-        } else {
-          classes = getClass(tests);
-        }
-        return classes;
-      }
-
-      getClass = function (test) {
-        return ((Modernizr.testAllProps(test) ? test : "no-"+test).toLowerCase())
-      }
-
-      $('html').addClass(getTestClasses(features));
-    }
-
     , wrapFlashVideos: function () {
       $('object').each(function(i, object) {
         if( $(object).find('param[name=movie]').length ){
@@ -77,7 +58,6 @@ var octopress = (function(){
 
 $(document).ready(function() {
   octopress.wrapFlashVideos();
-  octopress.testFeature(['maskImage', 'transform']);
   octopress.addMobileNav();
   octopress.addSidebarToggler();
 });
