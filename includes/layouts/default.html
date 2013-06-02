@@ -1,15 +1,15 @@
-{% include theme/vars/template.html %}
-{% include theme/head.html %}
+{% include custom/vars/template.html || theme/vars/template.html %}
+{% include custom/head.html || theme/head.html %}
 
 <body id="{% return page.body_id || '' %}" class="{{ body_class }}">
-  <header role="banner">{% include theme/header.html %}</header>
-  <nav role="navigation">{% include theme/navigation/main.html %}</nav>
+  <header role="banner">{% include custom/header.html || theme/header.html %}</header>
+  <nav role="navigation">{% include custom/navigation/main.html || theme/navigation/main.html %}</nav>
   <div id="main">
     <div id="content">
       {{ content | expand_urls: root_url }}
       {% if page.sidebar %}<aside class="sidebar">{% include page.sidebar %}</aside>{% endif %}
     </div>
   </div>
-  <footer role="contentinfo">{% include footer.html || theme/footer.html %}</footer>
+  <footer role="contentinfo">{% include custom/footer.html || theme/footer.html %}</footer>
 </body>
 </html>

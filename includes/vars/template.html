@@ -1,13 +1,26 @@
+{% comment %}
+/----------------------------------------------------\
+| Assigns core variables for the template            |
+|----------------------------------------------------|
+| 1. `root_url` based on sit econfiguration          |
+| 2. `page_title` and `description` for head         |
+| 3. `canonical_url` to site.url + page.url for head |
+| 4. `sidebar` variable based on page/site config    |
+| 5. `body_class` from page.class and sidebar config |
+\----------------------------------------------------/
+{% endcomment %}
+
 {% capture root_url %}{{ site.root | strip_slash }}{% endcapture %}
 
+{% capture page_title %}{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}{% endcapture %}
 {% assign description = page.description || site.description || nil %}
+
 {% assign page_url = page.url %}
 {% capture page_url unless site.permalink contains '.html' %}
   {% return '/' if page.url contains site.category_dir %}
   {{ page.url | remove:'index.html' }}
 {% endcapture %}
-
-{% capture favicon unless favicon %}{{ root_url }}/octopress-favicon.png{% endcapture %}
+{% capture canonical_url %}{{ site.url }}{{ page_url }}{% endcapture %}
 
 {% assign sidebar = page.sidebar || site.sidebar || '' %}
 

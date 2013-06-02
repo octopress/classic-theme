@@ -1,1 +1,8 @@
+{% comment %}
+/----------------------------------------------\
+| `permalink` = link for the current post/page |
+\----------------------------------------------/
+{% endcomment %}
+
 {% capture permalink %}<a rel="bookmark" href="{% return post.url || page.url %}">{{ site.permalink_label.post }}</a>{% endcapture %}
+

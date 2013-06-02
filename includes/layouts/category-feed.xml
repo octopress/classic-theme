@@ -14,7 +14,7 @@
 
   {% for post in site.categories[page.category] limit: 5 %}
     <entry>
-      {% include feed_entry.xml %}
+      {% include custom/feed-entry.xml || theme/feed-entry.xml %}
       <content type="html"><![CDATA[{{ content | markdownify | cdata_escape }}]]></content>
     </entry>
   {% endfor %}

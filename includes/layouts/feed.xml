@@ -12,6 +12,6 @@
   <generator uri="http://octopress.org/">Octopress</generator>
 
   {% for post in site.posts limit: site.feed.limit %}
-    <entry>{% include theme/feed-entry.xml %}</entry>
+    <entry>{% include custom/feed-entry.xml || theme/feed-entry.xml %}</entry>
   {% endfor %}
 </feed>

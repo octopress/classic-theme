@@ -1,9 +1,19 @@
-{% include theme/vars/linkpost.html %}
-{% include theme/vars/title_marker.html %}
-{% include theme/vars/title_marker_position.html %}
-{% include theme/vars/title.html %}
-{% include theme/vars/permalink.html %}
-{% include theme/vars/post_content.html %}
-{% include theme/vars/date.html %}
-{% include theme/vars/categories.html %}
+{% comment %}
+/-----------------------------------------------------------\
+| Assigns all variables needed for the post/page layout     |
+|-----------------------------------------------------------|
+| 1. Get the post or page's target url (linkpost or normal) |
+| 2. Get the proper title text (with markers)               |
+| 3. Format the post content for the loop including         |
+|    exceprts and permalinks where appropriate.             |
+| 4. Get date and category meta data for the post           |
+\-----------------------------------------------------------/
+{% endcomment %}
+
+{% include custom/vars/linkpost.html   || theme/vars/linkpost.html %}
+{% include custom/vars/title.html      || theme/vars/title.html %}
+{% include custom/vars/permalink.html  || theme/vars/permalink.html %}
+{% include custom/vars/content.html    || theme/vars/post_content.html %}
+{% include custom/vars/date.html       || theme/vars/date.html %}
+{% include custom/vars/categories.html || theme/vars/categories.html %}
 

@@ -1,4 +1,4 @@
-{% include theme/vars/post.html %}
+{% include custom/vars/post.html || theme/vars/post.html %}
 
 <div>
 <article class="{% if linkpost %}link-post{% endif %}" role="article">
@@ -12,7 +12,7 @@
   {% if page.is_post %}
     <footer>
       <p class="meta">{{ author }} {% return updated || date %} {{ categories }}</p>
-      {% include theme/navigation/posts.html if page.previous.url or page.next.url %}
+      {% include custom/navigation/posts.html || theme/navigation/posts.html if page.previous.url or page.next.url %}
     </footer>
   {% endif %}
 </article>

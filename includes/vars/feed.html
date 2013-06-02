@@ -1,11 +1,20 @@
-{% assign linkpost = post.external-url || false %}
+{% comment %}
+/---------------------------------------------------\
+| Assigns all variables needed for the feed layout  |
+|---------------------------------------------------|
+| 1. Get the post's target url (linkpost or normal) |
+| 2. Get the proper title text (with markers)       |
+| 3. Format the post content for the feed including |
+|    exceprts and permalinks where appropriate.     |
+\---------------------------------------------------/
+{% endcomment %}
 
-{% assign title_url = (linkpost ? linkpost : post.url) %}
+{% include custom/vars/linkpost.html || theme/vars/linkpost.html %}
+
+{% assign title_url = post.external-url || post.url %}
 {% capture title_url %}{{ title_url | prepend_url: site.url }}{% endcapture %}
 
-{% include theme/vars/title_marker_feed.html %}
-{% include theme/vars/title_marker_position.html %}
-{% include theme/vars/title.html %}
+{% include custom/vars/title.html || theme/vars/title.html %}
 
 {% capture post_content %}{{ post.content | expand_urls: site.url }}{% endcapture %}
 {% if site.excerpt.feed %}

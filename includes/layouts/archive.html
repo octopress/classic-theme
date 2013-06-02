@@ -5,6 +5,6 @@
     {% assign year = this_year %}
     <h2>{{ year }}</h2>
   {% endunless %}
-  {% include theme/archive-post.html %}
+  {% include custom/archive-post.html || theme/archive-post.html %}
 {% endfor %}
 </div>

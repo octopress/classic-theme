@@ -1,8 +1,27 @@
+{% comment %}
+/--------------------------------------------------------------------\
+| Assigns variables for page/post titles and links                   |
+|--------------------------------------------------------------------|
+| `title_text` = page or post title optionally titlecased            |
+| `title_url`  = page/post url (linkpost or normal)                  |
+| `title`      = title text with markers and link if a post/linkpost |
+\--------------------------------------------------------------------/
+{% endcomment %}
+
 {% assign title_text = post.title || page.title %}
-{% assign titlecase = post.titlecase || page.titlecase || site.titlecase || true %}
-{% if titlecase %}{% capture title_text %}{{ title_text | titlecase }}{% endcapture %}{% endif %}
+{% capture title_text if post.titlecase || page.titlecase || site.titlecase %}{{ title_text | titlecase }}{% endcapture %}
 
 {% assign title_url = post.external-url || page.external-url || post.url || page.url %}
 
-{% capture title %}{% return marker_before || '' %}{% if post or linkpost %}<a href="{{ title_url }}">{% endif %}{{ title_text }}{% if post or linkpost %}</a>{% endif %}{% return marker_after || '' %}{% endcapture %}
+{% assign marker = (linkpost ? site.title_marker.linkpost.marker : site.title_marker.post.marker ) || false %}
+{% assign marker_pos = (linkpost ? site.title_marker.linkpost.position : site.title_marker.post.position ) || false %}
 
+{% capture title if marker and marker_pos == 'before' %}<span class='post-marker'>{{ marker }}</span> {% endcapture %}
+{% capture title += if post or linkpost %}<a href="{{ title_url }}">{% endcapture %}
+{% assign  title += title_text %}
+{% capture title += if post or linkpost %}</a>{% endcapture %}
+{% capture title += if marker and marker_pos == 'after' %} <span class='post-marker'>{{ marker }}</span>{% endcapture %}
+
+{% capture feed_title if marker and marker_pos == 'before' %}{{ marker }} {% endcapture %}
+{% assign  feed_title += title_text %}
+{% capture feed_title += if marker and marker_pos == 'after' %} {{ marker }}{% endcapture %}

@@ -32,11 +32,9 @@ title_marker:
   post: 
     marker:         false
     position:       before
-    feed_position:  before
 
   # Default: link posts titles are followed with an arrow
   linkpost:
     marker:         "→"
     position:       after
-    feed_position:  after
 

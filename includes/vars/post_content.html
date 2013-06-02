@@ -1,5 +1,11 @@
+{% comment %}
+/------------------------------------------------------------------------------------\
+| Create variable `post_content` with post.content (exceprted if appropriate) or nil |
+\------------------------------------------------------------------------------------/
+{% endcomment %}
+
 {% assign post_content = post.content || nil %}
-{% unless post_content %}
+{% if post_content %}
   {% capture excerpted %}{{ post_content | has_excerpt }}{% endcapture %}
-  {% if excerpted != 'false' %}{% capture post_content %}{{ post_content | excerpt }}{% endcapture %}{% endif %}
-{% endunless %}
+  {% capture post_content unless excerpted == 'false' %}{{ post_content | excerpt }}{% endcapture %}
+{% endif %}

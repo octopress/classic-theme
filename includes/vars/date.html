@@ -1,3 +1,10 @@
+{% comment %}
+/-----------------------------------------------------------------\
+| Gets date and updated date for post or page                     |
+| `date`, `updated` variables with <time> wrapping formatted date |
+\-----------------------------------------------------------------/
+{% endcomment %}
+
 {% assign date = post.date || page.date || nil %}
 
 {% capture date if date %}<time class='date-published' datetime="{{ date | datetime | date_to_xmlschema }}" pubdate{% if updated %} data-updated="true"{% endif %}>{{ date | format_date, site.date_format }}</time>{% endcapture %}
