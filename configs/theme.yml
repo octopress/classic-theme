@@ -7,7 +7,7 @@ theme:
   name: classic
   version: 3.0
 
-simple_search: http://google.com/search
+simple_search: https://google.com/search
 favicon: /octopress-favicon.png
 
 # To change the layout's default sidebar Add a new sidebar source/_includes/sidebars/your_sidebar.html
